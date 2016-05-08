@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="size-chart.json"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="main.css">
+
+
+  </head>
+
+  <body>
+    <a class="btn" data-popup-open="popup-1" href="#">Open Popup #1</a>
+
+    <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <ul class="user-size-parameters">
+                <li>
+                    <span>My shirts are</span>
+                    <input type="text" id="chest-width" placeholder="54"/>
+                    <span>cm wide at chest.</span>
+                </li>
+                <li>
+                    <span>They're</span>
+                    <input type="text" id="waist-width" placeholder="45"/>
+                    <span>cm at waist.</span>
+                </li>
+                <li>
+                    <span>My sleeves are</span>
+                    <input type="text" id="sleeve-length" placeholder="80"/>
+                    <span>cm long.</span>
+                </li>
+            </ul>
+            <a id="size-reveal" href="#">Find Out My Size</a>
+            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        </div>
+    </div>
+  </body>
+  <script>
+
+  </script>
+</html>

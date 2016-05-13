@@ -25,3 +25,12 @@ var size_guidelines =
       "XXL": { "min": "110", "max": "116" }
    }
 };
+
+var mappings =
+{
+    "S" : 1,
+    "M" : 2,
+    "L" : 3,
+    "XL": 4,
+    "XXL": 5
+};

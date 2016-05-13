@@ -1,48 +1,53 @@
 <!doctype html>
 <html lang="">
-  <head>
+ <head>
     <meta charset="utf-8">
 
     <script type="text/javascript" src="size-chart.json"></script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/load_templates.js"></script>
+    <script type="text/javascript" src="scripts/size_guidelines.js"></script>
+    <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
 
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="main.css">
-
-
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
   </head>
 
   <body>
-    <a class="btn" data-popup-open="popup-1" href="#">Open Popup #1</a>
-
-    <div class="popup" data-popup="popup-1">
-        <div class="popup-inner">
-            <ul class="user-size-parameters">
-                <li>
-                    <span>My shirts are</span>
-                    <input type="text" id="chest-width" placeholder="54"/>
-                    <span>cm wide at chest.</span>
-                </li>
-                <li>
-                    <span>They're</span>
-                    <input type="text" id="waist-width" placeholder="45"/>
-                    <span>cm at waist.</span>
-                </li>
-                <li>
-                    <span>My sleeves are</span>
-                    <input type="text" id="sleeve-length" placeholder="80"/>
-                    <span>cm long.</span>
-                </li>
-            </ul>
-            <a id="size-reveal" href="#">Find Out My Size</a>
-            <p><a data-popup-close="popup-1" href="#">Close</a></p>
-            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    <button id="size-button">Find my size</button>
+    <div display="none" id="size-popup-wrap" class="animated fadeIn">
+        <div id="size-popup-content">
+            <div id="user_parameters" style="font-size:200%">
+                <ul class="style-1 input-list">
+                    <li>
+                        <span>I'm</span>
+                        <input id="height-input" class="user-input" type="text" maxlength="3" placeholder="180">
+                        <span>cm tall.</span>
+                    </li>
+                    <li>
+                        <span>I weigh</span>
+                        <input id="weight-input" class="user-input" type="text" maxlength="3" placeholder="80">
+                        <span>kg.</span>
+                    </li>
+                    <li>
+                        <span>My chest size is</span>
+                        <input id="chest-input" class="user-input" type="text" maxlength="3" placeholder="55">
+                        <span>cm. (Optional)</span>
+                    </li>
+                    <li>
+                        <button id="find-size-button">Determine my size!</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
   </body>
+
   <script>
 
   </script>

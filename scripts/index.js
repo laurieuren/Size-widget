@@ -6,22 +6,10 @@
  * Read json size chart with async false to enable passing the size chart data in order
  * to compare the size chart data to the user data.
  */
+
 function get_size_chart()
 {
-    var size_chart= (function () {
-            var size_chart = null;
-            $.ajax({
-                'async': false,
-                'global': false,
-                'url': "size-chart.json",
-                'dataType': "json",
-                'success': function (data) {
-                    size_chart = data;
-                }
-            });
-            return size_chart;
-        })();
-    return size_chart
+    var size_guidelines = JSON.parse("size_")
 }
 
 /**
@@ -37,6 +25,7 @@ function determine_size(size_chart, sizes) {
                                         size_chart[measurement_type])
     }
 };
+
 /**
  *
  * @param type
@@ -81,36 +70,26 @@ function compare_customer_sizes_to_chart(customer_size, chart_size) {
 
 }
 
-$(document).ready(function() {
-    $(function() {
+$(function() {
+
+
+
+    $(".modal-wide").on("show.bs.modal", function() {
+          var height = $(window).height() - 200;
+          $(this).find(".modal-body").css("max-height", height);
+        });
+
 
     /*
      * This is the Jquery function, that fires, when customer submits his given input as
      * measurements
      */
-    $('#size-reveal').click(function() {
-        var chest = $('#chest-width').val();
-        var waist = $('#waist-width').val();
-        var sleeve = $('#sleeve-length').val();
+    $('#find-size-button').click(function() {
+        var chest = $('#height-input').val();
+        var waist = $('#weight-input').val();
+        var sleeve = $('#chest-input').val();
         var measurements = {"chest": chest, "waist": waist, "sleeve": sleeve};
-        var size_chart = get_size_chart();
-        determine_size(size_chart, measurements);
-
-    });
-    // Here is the initial pop-up open and close functions with jquery.
-    $('[data-popup-open]').on('click', function(e)  {
-        var targeted_popup_class = $(this).attr('data-popup-open');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
-
-        e.preventDefault();
-    });
-
-    $('[data-popup-close]').on('click', function(e)  {
-        var targeted_popup_class = $(this).attr('data-popup-close');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
-
-        e.preventDefault();
-        });
+        determine_size(size_guidelines, measurements);
 
     });
 });

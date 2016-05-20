@@ -10,17 +10,19 @@
  * @param size_chart
  * @param sizes
  */
-function determine_size(size_chart, sizes, chest_included= false) {
+function determine_size(size_chart, customer_sizes, chest_included= false) {
     var response_text = "";
-    for (measurement_type in sizes) {
+    for (measurement_type in customer_sizes) {
         if (measurement_type != "chest") {
-             go_through_customer_input_sizes(measurement_type,
-                                        sizes[measurement_type],
-                                        size_chart[measurement_type])
+             var compared_measures = go_through_customer_input_sizes(measurement_type,
+                                                                     customer_sizes[measurement_type],
+                                                                     size_chart[measurement_type])
+            alert(compared_measures)
         } else if (measurement_type == "chest" && chest_included) {
-            go_through_customer_input_sizes(measurement_type,
-                                        sizes[measurement_type],
-                                        size_chart[measurement_type])
+            var compared_measures = go_through_customer_input_sizes(measurement_type,
+                                                                    customer_sizes[measurement_type],
+                                                                    size_chart[measurement_type])
+            alert(compared_measures)
         } else {
             "no chest measurement"
         }
@@ -43,27 +45,22 @@ function go_through_customer_input_sizes(type, customer_measurement, size_chart)
     last_size = "";
     current_size = "";
     recommended_size = "";
+    var compared_params = [];
     for (size in size_chart) {
         current_size = size;
         if (customer_measurement < size_chart[size]["min"]) {
-
+            compared_params.push(customer_measurement, size_chart[size]["min"], type, size, "min");
+            break
         } else if (customer_measurement < size_chart[size]["max"]) {
-
+            compared_params.push(customer_measurement, true, type, size);
+            break;
         } else if (customer_measurement > size_chart[size]["max"] && size_chart[size] == "XXL") {
-            // Too big somehow
+            compared_params.push(customer_measurement, size_chart[size]["max"], type, size, "max");
+            break;
         }
         last_size = current_size
     }
-
-    // Determines, which size the customer should choose
-    if (last_size == "") {
-        // No last size, meaning that the size is S
-
-    } else if (recommended_size != "") {
-        // The recommended size has been set at size XXL
-    } else {
-        //TODO The most usual scenario -> customer between sizes
-    }
+    return compared_params;
 }
 
 
@@ -76,11 +73,11 @@ $(function() {
         var height = $('#height-input').val();
         var weight = $('#weight-input').val();
         var chest = $('#chest-input').val();
-        var measurements = { "weight": weight, "height": height, "chest": chest };
-        var size_chart = size_guidelines;
-        var chest_included = false
-        if (measurements["chest"] != "") chest_included = true;
-        determine_size(size_chart, measurements, chest_included);
+        var customer_measurements = { "weight": weight, "height": height, "chest": chest };
+        var chest_included = false;
+        if (customer_measurements["chest"] != "") chest_included = true;
+
+        determine_size(size_guidelines, customer_measurements, chest_included);
 
     });
 });

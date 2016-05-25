@@ -55,3 +55,7 @@ li {
 div * {
   font-size: 110%;
 }
+
+#size-popup-accurate {
+  display: none;
+}

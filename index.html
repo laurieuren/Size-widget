@@ -23,7 +23,7 @@
     <button id="size-button">Find my size</button>
     <div id="size-popup-wrap" class="animated fadeIn">
         <div id="size-popup-content">
-            <div id="user_parameters" style="font-size:200%">
+            <div id="user-parameters">
                 <ul class="style-1 input-list">
                     <li>
                         <span>I'm</span>
@@ -36,17 +36,30 @@
                         <span>kg.</span>
                     </li>
                     <li>
-                        <span>My chest size is</span>
-                        <input id="chest-input" class="user-input" type="text" maxlength="3" placeholder="55">
-                        <span>cm. (Optional)</span>
+                        <span>My chest</span>
+                         <div class="styled-select">
+                            <select id="chest-input" class="user-input">
+                                <option value="true">is</option>
+                                <option value="false">is not</option>
+                            </select>
+                        </div>
+                        <span>wider than average.</span>
+
+
                     </li>
                     <li>
                         <button id="find-size-button">Determine my size!</button>
                     </li>
                 </ul>
-                <div id="size-popup-accurate" class="animated fadeIn">sdasd</div>
-            </div>
 
+            </div>
+            <div id="size-popup-accurate" class="animated fadeIn">
+                <div class="upper-div">
+                    <div id="upper-div-content" class="vertical-align"></div>
+                </div>
+                <div id="left-div" class="vertical-align"></div>
+                <div id="right-div" class="vertical-align"></div>
+            </div>
         </div>
 
     </div>

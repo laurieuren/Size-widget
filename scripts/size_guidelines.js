@@ -11,7 +11,7 @@ var size_guidelines =
   "height":
     {
       "S": { "min": "", "max": "179" },
-      "M": { "min": "175", "max": "186" },
+      "M": { "min": "176", "max": "186" },
       "L": { "min": "177", "max": "190" },
       "XL": { "min": "177", "max": "190" },
       "XXL": { "min": "177", "max": "190" }
@@ -26,11 +26,26 @@ var size_guidelines =
    }
 };
 
-var mappings =
+var size_mappings =
 {
     "S" : 1,
     "M" : 2,
     "L" : 3,
     "XL": 4,
     "XXL": 5
+};
+
+var explanations =
+{
+    "size_up":
+      {
+        "weight_bigger_1": "If you're ok with a very slim fit, you can go for size ",
+        "weight_bigger_2": " otherwise we recommend you to size up for size ",
+        "height_bigger_1": "You can go for size ",
+        "height_bigger_2": ", but lengthwise we recommend you to go for size "
+      },
+    "normal":
+    {
+        "sizes_same": "You're good to go with size "
+    }
 };
